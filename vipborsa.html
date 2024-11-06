@@ -32,11 +32,14 @@
 
         .message {
             padding: 10px 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             border-radius: 8px;
-            max-width: 80%;
+            max-width: 70%;
             background-color: #dcf8c6;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .message.received {
@@ -47,9 +50,6 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            position: absolute;
-            bottom: -20px;
-            left: 10px;
         }
 
         .message-content {
@@ -64,13 +64,7 @@
         .message-time {
             font-size: 0.8em;
             color: #999;
-            display: flex;
-            align-items: center;
-            margin-top: 5px;
-        }
-
-        .message-time span.date {
-            margin-right: 10px;
+            align-self: flex-end;
         }
     </style>
 </head>
@@ -78,31 +72,25 @@
 
 <div class="chat-container">
     <div class="message received">
+        <img src="https://profilphoto.png" alt="Profile Photo">
         <div class="message-content">
             <span class="message-text">Merhaba, nasılsın?</span>
-            <div class="message-time">
-                <span class="date">2024-11-06</span> <span class="time">11:01</span>
-            </div>
+            <span class="message-time">06.11.2024 11:01</span>
         </div>
-        <img src="https://via.placeholder.com/40" alt="Profile Photo">
     </div>
     <div class="message received">
+        <img src="https://profilphoto.png" alt="Profile Photo">
         <div class="message-content">
             <span class="message-text">İyi misin, bir süredir sessizsin.</span>
-            <div class="message-time">
-                <span class="date">2024-11-06</span> <span class="time">11:03</span>
-            </div>
+            <span class="message-time">06.11.2024 11:03</span>
         </div>
-        <img src="https://profilphoto.png" alt="Profile Photo">
     </div>
     <div class="message received">
+        <img src="https://profilphoto.png" alt="Profile Photo">
         <div class="message-content">
-            <span class="message-text">Eğer konuşmak istersen buradayım.</span>
-            <div class="message-time">
-                <span class="date">2024-11-06</span> <span class="time">11:05</span>
-            </div>
+            <span class="message-text">Eğer konuşmak istersen buradayım. bugün başıma çok kötü bir olay geldi. serdar hoca beni kopya çekerken yakaladı herkesin ortasında beni rezil etti. bağırırken özkan video kaydı almış. telefonunu aldı özkanın camdan aşağıya attı. özkanla hoca yumruk yumruğa kavga ettiler. şimdi sana fotoğraf atıcam.</span>
+            <span class="message-time">06.11.2024 11:05</span>
         </div>
-        <img src="https://via.placeholder.com/40" alt="Profile Photo">
     </div>
 </div>
 
