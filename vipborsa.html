@@ -87,12 +87,27 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            flex-direction: column;
         }
 
         .fullscreen img {
             max-width: 100%;
             max-height: 100%;
             border-radius: 8px;
+            transition: transform 0.3s ease; /* Dönüşüm animasyonu */
+        }
+
+        /* Döndürme düğmesi */
+        .rotate-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -124,7 +139,7 @@
         <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
         <div class="message-content">
             <span class="message-text">Şimdi sana fotoğraf atıcam.</span>
-            <img src="ornekgorsel.jpg" alt="Gönderilen Fotoğraf" class="sent-photo" onclick="openFullscreen(this)">
+            <img src="https://via.placeholder.com/200" alt="Gönderilen Fotoğraf" class="sent-photo" onclick="openFullscreen(this)">
             <span class="message-time">06.11.2024 11:06</span>
         </div>
     </div>
@@ -132,20 +147,31 @@
 
 <!-- Tam ekran fotoğraf kutusu -->
 <div id="fullscreenModal" class="fullscreen" style="display: none;" onclick="closeFullscreen()">
+    <button class="rotate-button" onclick="rotateImage(event)">↻ Döndür</button>
     <img id="fullscreenImage" src="" alt="Fullscreen Photo">
 </div>
 
 <script>
+    let rotation = 0;
+
     function openFullscreen(image) {
         var modal = document.getElementById("fullscreenModal");
         var fullscreenImg = document.getElementById("fullscreenImage");
         fullscreenImg.src = image.src;
         modal.style.display = "flex";
+        rotation = 0; // Reset rotation
+        fullscreenImg.style.transform = `rotate(${rotation}deg)`;
     }
 
     function closeFullscreen() {
         var modal = document.getElementById("fullscreenModal");
         modal.style.display = "none";
+    }
+
+    function rotateImage(event) {
+        event.stopPropagation(); // Modal kapanmasını engelle
+        rotation += 90;
+        document.getElementById("fullscreenImage").style.transform = `rotate(${rotation}deg)`;
     }
 </script>
 
