@@ -34,7 +34,7 @@
             padding: 10px 15px;
             margin-bottom: 20px;
             border-radius: 8px;
-            max-width: 85%;
+            max-width: 85%; /* Sohbet balonunu sağa doğru genişlettik */
             background-color: #dcf8c6;
             position: relative;
         }
@@ -59,7 +59,7 @@
             margin-top: 5px;
         }
 
-        .message img {
+        .message img.profile-photo {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -67,30 +67,43 @@
             bottom: 13px; /* Alt tarafa hizalama */
             left: 13px; /* Sol tarafa hizalama */
         }
+
+        .message img.sent-photo {
+            width: 100%; /* Gönderilen fotoğraf genişliği */
+            margin-top: 10px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
 
 <div class="chat-container">
     <div class="message received">
-        <img src="profilphoto.png" alt="Profile Photo">
+        <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
         <div class="message-content">
             <span class="message-text">Merhaba, nasılsın?</span>
             <span class="message-time">06.11.2024 11:01</span>
         </div>
     </div>
     <div class="message received">
-        <img src="profilphoto.png" alt="Profile Photo">
+        <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
         <div class="message-content">
             <span class="message-text">İyi misin</span>
             <span class="message-time">06.11.2024 11:03</span>
         </div>
     </div>
     <div class="message received">
-        <img src="profilphoto.png" alt="Profile Photo">
+        <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
         <div class="message-content">
-            <span class="message-text">Eğer konuşmak istersen buradayım. bugün başıma çok kötü bir olay geldi. serdar hoca beni kopya çekerken yakaladı herkesin ortasında beni rezil etti. bağırırken özkan video kaydı almış. telefonunu aldı özkanın camdan aşağıya attı. özkanla hoca yumruk yumruğa kavga ettiler. şimdi sana fotoğraf atıcam.</span>
+            <span class="message-text">Eğer konuşmak istersen buradayım. bugün başıma çok kötü bir olay geldi. serdar hoca beni kopya çekerken yakaladı herkesin ortasında beni rezil etti. bağırırken özkan video kaydı almış. telefonunu aldı özkanın camdan aşağıya attı. özkanla hoca yumruk yumruğa kavga ettiler.</span>
             <span class="message-time">06.11.2024 11:05</span>
+        </div>
+    </div>
+    <div class="message received">
+        <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
+        <div class="message-content">
+            <img src="https://ornekgorsel.jpg" alt="Gönderilen Fotoğraf" class="sent-photo">
+            <span class="message-time">06.11.2024 11:06</span>
         </div>
     </div>
 </div>
