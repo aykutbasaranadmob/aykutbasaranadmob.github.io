@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Sayfası</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #e5ddd5;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,29 +21,13 @@
         }
 
         .chat-container {
-            width: 100%;
-            max-width: 400px;
+            width: 100vw;
+            height: 100vh;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            height: 80vh;
-        }
-
-        .chat-header {
-            background-color: #075e54;
-            color: #fff;
             padding: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
         }
 
         .message {
@@ -47,17 +35,12 @@
             margin-bottom: 10px;
             border-radius: 8px;
             max-width: 70%;
+            background-color: #dcf8c6;
             position: relative;
         }
 
-        .message.sent {
-            background-color: #dcf8c6;
-            margin-left: auto;
-        }
-
         .message.received {
-            background-color: #fff;
-            border: 1px solid #ece5dd;
+            background-color: #dcf8c6;
         }
 
         .message-time {
@@ -67,54 +50,22 @@
             bottom: 5px;
             right: 10px;
         }
-
-        .chat-footer {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-top: 1px solid #ece5dd;
-            background-color: #fff;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            outline: none;
-        }
-
-        .send-button {
-            background-color: #075e54;
-            color: #fff;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-left: 5px;
-        }
     </style>
 </head>
 <body>
 
 <div class="chat-container">
-    <div class="chat-header">Sohbet</div>
-    <div class="chat-messages">
-        <div class="message received">
-            Merhaba, nasılsın?
-            <span class="message-time">11:01</span>
-        </div>
-        <div class="message sent">
-            İyiyim, teşekkürler! Sen nasılsın?
-            <span class="message-time">11:02</span>
-        </div>
-        <div class="message received">
-            Ben de iyiyim, sağ ol!
-            <span class="message-time">11:03</span>
-        </div>
+    <div class="message received">
+        Merhaba, nasılsın?
+        <span class="message-time">11:01</span>
     </div>
-    <div class="chat-footer">
-        <input type="text" class="chat-input" placeholder="Mesaj yaz...">
-        <button class="send-button">Gönder</button>
+    <div class="message received">
+        İyi misin, bir süredir sessizsin.
+        <span class="message-time">11:03</span>
+    </div>
+    <div class="message received">
+        Eğer konuşmak istersen buradayım.
+        <span class="message-time">11:05</span>
     </div>
 </div>
 
