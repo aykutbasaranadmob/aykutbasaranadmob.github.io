@@ -37,8 +37,6 @@
             max-width: 70%;
             background-color: #dcf8c6;
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
 
         .message.received {
@@ -48,7 +46,7 @@
         .message-content {
             display: flex;
             flex-direction: column;
-            padding-bottom: 30px; /* Profil fotoğrafı için yer açma */
+            padding-left: 50px; /* Profil resmine yer açmak için solda boşluk bırak */
         }
 
         .message-text {
@@ -66,8 +64,8 @@
             height: 40px;
             border-radius: 50%;
             position: absolute;
-            left: 10px; /* Konuşma balonunun sol kenarına yerleştirme */
-            bottom: -20px; /* Alt kısma hizalama */
+            bottom: -10px; /* Alt tarafa hizalama */
+            left: 0; /* Sol tarafa hizalama */
         }
     </style>
 </head>
@@ -75,25 +73,25 @@
 
 <div class="chat-container">
     <div class="message received">
+        <img src="profilphoto.png" alt="Profile Photo">
         <div class="message-content">
             <span class="message-text">Merhaba, nasılsın?</span>
             <span class="message-time">06.11.2024 11:01</span>
         </div>
-        <img src="profilphoto.png" alt="Profile Photo">
     </div>
     <div class="message received">
+        <img src="profilphoto.png" alt="Profile Photo">
         <div class="message-content">
             <span class="message-text">İyi misin</span>
             <span class="message-time">06.11.2024 11:03</span>
         </div>
-        <img src="profilphoto.png" alt="Profile Photo">
     </div>
     <div class="message received">
+        <img src="profilphoto.png" alt="Profile Photo">
         <div class="message-content">
             <span class="message-text">Eğer konuşmak istersen buradayım. bugün başıma çok kötü bir olay geldi. serdar hoca beni kopya çekerken yakaladı herkesin ortasında beni rezil etti. bağırırken özkan video kaydı almış. telefonunu aldı özkanın camdan aşağıya attı. özkanla hoca yumruk yumruğa kavga ettiler. şimdi sana fotoğraf atıcam.</span>
             <span class="message-time">06.11.2024 11:05</span>
         </div>
-        <img src="profilphoto.png" alt="Profile Photo">
     </div>
 </div>
 
