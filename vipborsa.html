@@ -34,7 +34,7 @@
             padding: 10px 15px;
             margin-bottom: 20px;
             border-radius: 8px;
-            max-width: 85%; /* Sohbet balonunu sağa doğru genişlettik */
+            max-width: 85%;
             background-color: #dcf8c6;
             position: relative;
         }
@@ -46,7 +46,7 @@
         .message-content {
             display: flex;
             flex-direction: column;
-            padding-left: 50px; /* Profil resmine yer açmak için solda boşluk bırak */
+            padding-left: 50px;
         }
 
         .message-text {
@@ -64,13 +64,34 @@
             height: 40px;
             border-radius: 50%;
             position: absolute;
-            bottom: 13px; /* Alt tarafa hizalama */
-            left: 13px; /* Sol tarafa hizalama */
+            bottom: 13px;
+            left: 13px;
         }
 
         .message img.sent-photo {
-            width: 100%; /* Gönderilen fotoğraf genişliği */
+            width: 100%;
             margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer; /* Tıklanabilir işaretçi */
+        }
+
+        /* Tam ekran fotoğraf görünümü */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .fullscreen img {
+            max-width: 100%;
+            max-height: 100%;
             border-radius: 8px;
         }
     </style>
@@ -102,12 +123,31 @@
     <div class="message received">
         <img src="profilphoto.png" alt="Profile Photo" class="profile-photo">
         <div class="message-content">
-            <img src="ornekgorsel.jpg" alt="Gönderilen Fotoğraf" class="sent-photo">
-            <span class="message-text">Hisse Kodu: ESEN</span>
+            <span class="message-text">Şimdi sana fotoğraf atıcam.</span>
+            <img src="https://via.placeholder.com/200" alt="Gönderilen Fotoğraf" class="sent-photo" onclick="openFullscreen(this)">
             <span class="message-time">06.11.2024 11:06</span>
         </div>
     </div>
 </div>
+
+<!-- Tam ekran fotoğraf kutusu -->
+<div id="fullscreenModal" class="fullscreen" style="display: none;" onclick="closeFullscreen()">
+    <img id="fullscreenImage" src="" alt="Fullscreen Photo">
+</div>
+
+<script>
+    function openFullscreen(image) {
+        var modal = document.getElementById("fullscreenModal");
+        var fullscreenImg = document.getElementById("fullscreenImage");
+        fullscreenImg.src = image.src;
+        modal.style.display = "flex";
+    }
+
+    function closeFullscreen() {
+        var modal = document.getElementById("fullscreenModal");
+        modal.style.display = "none";
+    }
+</script>
 
 </body>
 </html>
