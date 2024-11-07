@@ -34,7 +34,7 @@
             padding: 10px 15px;
             margin-bottom: 20px;
             border-radius: 8px;
-            max-width: 85%; /* Sohbet balonunu sağa doğru genişlettik */
+            max-width: 85%;
             background-color: #dcf8c6;
             position: relative;
         }
@@ -64,15 +64,15 @@
             height: 40px;
             border-radius: 50%;
             position: absolute;
-            bottom: 13px; /* Alt tarafa hizalama */
-            left: 13px; /* Sol tarafa hizalama */
+            bottom: 13px;
+            left: 13px;
         }
 
         .message img.sent-photo {
-            width: 100%; /* Gönderilen fotoğraf genişliği */
+            width: 100%;
             margin-top: 10px;
             border-radius: 8px;
-            cursor: pointer; /* Tıklanabilir işaretçi */
+            cursor: pointer;
         }
 
         /* Tam ekran fotoğraf görünümü */
@@ -87,15 +87,15 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            overflow: hidden;
             flex-direction: column;
-            overflow: hidden; /* İçeriğin taşmasını engelle */
         }
 
         .fullscreen img {
             max-width: 100%;
             max-height: 100%;
             border-radius: 8px;
-            transition: transform 0.3s ease; /* Dönüşüm animasyonu */
+            transition: transform 0.3s ease;
         }
 
         /* Döndürme düğmesi */
@@ -109,7 +109,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            z-index: 1001; /* Düğmenin üstte görünmesi için */
+            z-index: 1001;
         }
     </style>
 </head>
@@ -142,9 +142,9 @@
         <div class="message-content">
             <span class="message-text">Öyleyse ilk paylaşımımızı yapıp başlayalım.</span>
             <img src="ornekgorsel.jpg" alt="Gönderilen Fotoğraf" class="sent-photo" onclick="openFullscreen(this)">
-
             <span class="message-text">
-Hisse Kodu: <strong>ESEN</strong></span>
+                Hisse Kodu: <strong>ESEN</strong>
+            </span>
             <span class="message-time">06.11.2024 11:06</span>
         </div>
     </div>
@@ -160,23 +160,37 @@ Hisse Kodu: <strong>ESEN</strong></span>
     let rotation = 0;
 
     function openFullscreen(image) {
-        var modal = document.getElementById("fullscreenModal");
-        var fullscreenImg = document.getElementById("fullscreenImage");
+        const modal = document.getElementById("fullscreenModal");
+        const fullscreenImg = document.getElementById("fullscreenImage");
         fullscreenImg.src = image.src;
         modal.style.display = "flex";
         rotation = 0; // Reset rotation
-        fullscreenImg.style.transform = `rotate(${rotation}deg)`;
+        fullscreenImg.style.transform = `rotate(${rotation}deg) scale(1)`;
+        updateImageSize(fullscreenImg);
     }
 
     function closeFullscreen() {
-        var modal = document.getElementById("fullscreenModal");
+        const modal = document.getElementById("fullscreenModal");
         modal.style.display = "none";
     }
 
     function rotateImage(event) {
         event.stopPropagation(); // Modal kapanmasını engelle
         rotation += 90;
-        document.getElementById("fullscreenImage").style.transform = `rotate(${rotation}deg)`;
+        rotation = rotation % 360; // 360 dereceyi aşarsa sıfırla
+        const fullscreenImg = document.getElementById("fullscreenImage");
+        fullscreenImg.style.transform = `rotate(${rotation}deg)`;
+        updateImageSize(fullscreenImg);
+    }
+
+    function updateImageSize(image) {
+        if (rotation % 180 !== 0) { // 90 veya 270 derece döndüyse
+            image.style.maxWidth = "100vh";
+            image.style.maxHeight = "100vw";
+        } else { // 0 veya 180 derece döndüyse
+            image.style.maxWidth = "100%";
+            image.style.maxHeight = "100%";
+        }
     }
 </script>
 
