@@ -12,6 +12,7 @@
             line-height: 1.6;
             padding: 20px;
             user-select: none; /* Kopyalamayı devre dışı bırakır */
+            pointer-events: none; /* Tıklamayı devre dışı bırakır */
         }
         h1, h2 {
             color: orange;
@@ -20,6 +21,15 @@
             margin-bottom: 15px;
         }
     </style>
+    <script>
+        // Sağ tıklamayı ve metin seçimini engeller
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener("selectstart", function(e) {
+            e.preventDefault();
+        });
+    </script>
 </head>
 <body>
     <h1>Yatırım Mantığımız</h1>
